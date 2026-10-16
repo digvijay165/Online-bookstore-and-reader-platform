@@ -605,7 +605,8 @@ body.reader-mode .topbar, body.reader-mode .site-footer, body.reader-mode .main-
   .user-btn { padding: 4px; }
   .hero h1 { font-size: 34px; }
   .hero p.lead { font-size: 16px; }
-  .features { grid-template-columns: 1fr; margin-top: -24px; }
+  .features { grid-template-columns: 1fr; margin-top: 20px; }
+  .hero-stats { gap: 22px 28px; }
   .book-grid { grid-template-columns: repeat(2, 1fr); gap: 14px 10px; }
   .book-row { grid-auto-columns: 46%; }
   .book-card { padding: 8px; }
@@ -647,6 +648,11 @@ body.reader-mode .topbar, body.reader-mode .site-footer, body.reader-mode .main-
   --shadow-lg: 0 20px 40px rgba(0,0,0,.55);
 }
 :root[data-theme="dark"] .btn-primary { background: #2e5583; color: #fff; }
+/* Yellow surfaces keep dark text in dark mode (--primary-600 turns light there) */
+:root[data-theme="dark"] .btn-accent,
+:root[data-theme="dark"] .btn-accent:hover:not(:disabled),
+:root[data-theme="dark"] .count-badge,
+:root[data-theme="dark"] .badge-hot { color: #1f3a5f; }
 :root[data-theme="dark"] .btn-primary:hover:not(:disabled) { background: #3a679b; color: #fff; }
 :root[data-theme="dark"] .header-search button,
 :root[data-theme="dark"] .avatar,
