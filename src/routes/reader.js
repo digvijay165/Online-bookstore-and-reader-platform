@@ -3,11 +3,11 @@ const fs = require('node:fs');
 const path = require('node:path');
 const zlib = require('node:zlib');
 const express = require('express');
-const { db, DATA_DIR } = require('../db');
+const { db, STORE_DIR } = require('../db');
 const { HttpError, str, int, requireAuth } = require('../security');
 
 const router = express.Router();
-const TEXT_DIR = path.join(DATA_DIR, 'texts');
+const TEXT_DIR = path.join(STORE_DIR, 'texts');
 const inFlight = new Map();
 
 // Remove the Project Gutenberg licence header/footer, keep only the book itself.

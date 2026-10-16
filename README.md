@@ -30,7 +30,8 @@ Copy `.env.example` to `.env` first and set your admin email and password.
 
 `render.yaml` uses Render's **free plan**: the site sleeps after 15 minutes without visitors (the first visit
 then takes about a minute) and the SQLite database is reset when the service restarts or redeploys. To keep users
-and orders permanently, upgrade to a paid instance, add a disk mounted at `/opt/render/project/src/data`, and redeploy.
+and orders permanently, upgrade to a paid instance, add a disk (for example mounted at `/var/data`), set the
+environment variable `DATA_DIR=/var/data`, and redeploy.
 
 ## Admin login
 

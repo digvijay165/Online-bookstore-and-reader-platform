@@ -7,9 +7,11 @@ const config = require('./config');
 const { hashPassword } = require('./security');
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
-fs.mkdirSync(path.join(DATA_DIR, 'texts'), { recursive: true });
+// The database and cached book texts can live elsewhere (e.g. a persistent disk) via DATA_DIR
+const STORE_DIR = process.env.DATA_DIR ? path.resolve(process.env.DATA_DIR) : DATA_DIR;
+fs.mkdirSync(path.join(STORE_DIR, 'texts'), { recursive: true });
 
-const db = new DatabaseSync(path.join(DATA_DIR, 'bookstore.db'));
+const db = new DatabaseSync(path.join(STORE_DIR, 'bookstore.db'));
 db.exec('PRAGMA journal_mode = WAL; PRAGMA foreign_keys = ON;');
 
 db.exec(`
@@ -248,4 +250,4 @@ function seed() {
 
 seed();
 
-module.exports = { db, transaction, DATA_DIR };
+module.exports = { db, transaction, DATA_DIR, STORE_DIR };
