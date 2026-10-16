@@ -569,7 +569,7 @@ async function pageHome(ctx) {
     <section class="hero">
       <div class="container hero-inner">
         <div>
-          <span class="eyebrow">✨ New: Read 99+ classics free in the Reader Zone</span>
+          <span class="eyebrow">✨ New: Read 240+ classics free in the Reader Zone</span>
           <h1>Find your next <em>favourite book</em>, or start reading right now.</h1>
           <p class="lead">Shop bestsellers, timeless classics and Indian literature at honest prices, delivered to your door. Or open the Reader Zone and read public-domain classics free in your browser.</p>
           <div class="hero-cta">

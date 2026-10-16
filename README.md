@@ -33,8 +33,8 @@ community publishing with editorial review, and account security features such a
 
 **Online Bookstore & Reader Platform** brings together everything a reader needs:
 
-- 🛒 **Shop** 371 titles across 30 categories, from bestselling fiction to engineering textbooks, comics, manga and magazines.
-- 📖 **Read** 106 public-domain classics free in a comfortable, customisable online reader.
+- 🛒 **Shop** 541 titles across 30 categories, from bestselling fiction to engineering textbooks, comics, manga and magazines.
+- 📖 **Read** 246 public-domain classics free in a comfortable, customisable online reader.
 - ✍️ **Publish** your own writing. Editors review each submission before it goes live in the Reader Zone.
 - 🎓 **Study** with textbooks organised by level (UG, PG, PhD) and exam (UPSC, JEE, NEET, CAT, SSC).
 
@@ -76,7 +76,7 @@ and Node.js with Express and Node's built-in SQLite on the server, so it is ligh
 ### 🛒 Bookstore
 | | |
 |---|---|
-| **Large catalog** | 371 titles in 30 categories: classics, fiction, mystery, sci-fi, fantasy, Indian and Hindi literature, self-help, business, biography, and more |
+| **Large catalog** | 541 titles in 30 categories: classics, fiction, mystery, sci-fi, fantasy, Indian and Hindi literature, self-help, business, biography, and more |
 | **Academic & exams hub** | Engineering (CS, Mechanical, Electrical, Electronics, Civil, Chemical), Medical, Science & Maths, Commerce & MBA, Humanities, PhD research methods, and competitive exam guides |
 | **Comics, manga & magazines** | Graphic novels, Indian comics, popular manga volumes, and news, business, science and exam-prep magazines |
 | **Smart browsing** | Live search suggestions, filters by type, academic level, genre, subject/branch, language, price and stock, plus sorting and pagination |
@@ -85,7 +85,7 @@ and Node.js with Express and Node's built-in SQLite on the server, so it is ligh
 | **Reviews & wishlist** | Star ratings and written reviews, wishlist, recently viewed books, share buttons |
 
 ### 📖 Reader Zone
-- 106 public-domain classics (Pride and Prejudice, Sherlock Holmes, Frankenstein, Gitanjali and more), streamed from Project Gutenberg and cached on the server
+- 246 public-domain classics (Pride and Prejudice, Sherlock Holmes, Kim, Heidi, Frankenstein, Gitanjali, Shakespeare and more), streamed from Project Gutenberg and cached on the server
 - Automatic chapter detection with a table of contents, page slider, keyboard navigation and swipe gestures on phones
 - **Day, sepia, dark and night** themes with adjustable font, text size, line spacing and page width
 - Bookmarks with notes, and reading progress synced to your account (or saved in the browser for guests)

@@ -205,7 +205,7 @@ function transaction(fn) {
 
 // Bump this whenever books.json gains new titles; missing titles are added on next start
 // without touching users, orders or books an admin has edited.
-const CATALOG_VERSION = 2;
+const CATALOG_VERSION = 3;
 
 function seed() {
   const { user_version: version } = db.prepare('PRAGMA user_version').get();

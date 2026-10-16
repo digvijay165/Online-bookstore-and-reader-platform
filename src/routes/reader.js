@@ -17,6 +17,12 @@ function cleanText(raw) {
   if (start !== -1) text = text.slice(text.indexOf('\n', start) + 1);
   const end = text.search(/\*\*\* ?END OF (THE|THIS) PROJECT GUTENBERG/i);
   if (end !== -1) text = text.slice(0, end);
+  // Older files carry a "small print" licence ending in "...*END*" near the top; drop everything up to it
+  const head = text.slice(0, 20000);
+  const oldLicence = head.search(/\*END\*?\s*THE SMALL PRINT|SMALL PRINT!? FOR PUBLIC DOMAIN/i);
+  const endMark = head.lastIndexOf('*END*');
+  if (oldLicence !== -1 && endMark !== -1) text = text.slice(text.indexOf('\n', endMark) + 1);
+  else if (endMark !== -1 && endMark < 300) text = text.slice(text.indexOf('\n', endMark) + 1);
   return text.trim();
 }
 
