@@ -1,111 +1,254 @@
-# Online Bookstore & Reader Platform
+<div align="center">
 
-A full-stack online bookstore with a free online reader for public-domain classics, community publishing,
-textbooks from UG to PhD, comics, manga and magazines.
+# 📚 Online Bookstore & Reader Platform
 
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/digvijay165/Online-bookstore-and-reader-platform)
+**Buy books, read classics for free, and publish your own stories, all in one place.**
 
-- **Frontend:** HTML5, CSS3, vanilla JavaScript (single-page app, no build step)
-- **Backend:** Node.js + Express
-- **Database:** SQLite (Node's built-in `node:sqlite`, so no database server to install)
+A full-stack web platform combining an online bookstore, a free in-browser e-reader,
+community publishing with editorial review, and account security features such as two-step verification.
 
-## Run it
+### [🌐 Live Demo: online-bookstore-and-reader-platform.onrender.com](https://online-bookstore-and-reader-platform.onrender.com)
 
-Requires **Node.js 22.13 or newer** (tested with Node 24).
+[![Live Demo](https://img.shields.io/badge/demo-live-1f8a5b?style=for-the-badge&logo=render&logoColor=white)](https://online-bookstore-and-reader-platform.onrender.com)
+[![Node.js](https://img.shields.io/badge/Node.js-22%2B-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org)
+[![Express](https://img.shields.io/badge/Express-4-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com)
+[![SQLite](https://img.shields.io/badge/SQLite-built--in-003B57?style=for-the-badge&logo=sqlite&logoColor=white)](https://nodejs.org/api/sqlite.html)
+[![JavaScript](https://img.shields.io/badge/JavaScript-Vanilla-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/docs/Web/JavaScript)
+
+[Features](#-features) · [Tech Stack](#-tech-stack) · [Getting Started](#-getting-started) · [Deployment](#-deployment) · [Security](#-security) · [API](#-api-overview) · [Contact](#-contact)
+
+</div>
+
+> [!NOTE]
+> The live demo runs on Render's free plan. If it has been idle, the **first visit can take about a minute** to wake up.
+> Demo data (accounts, orders, published books) is reset whenever the service restarts.
+
+---
+
+## 📖 About
+
+**Online Bookstore & Reader Platform** brings together everything a reader needs:
+
+- 🛒 **Shop** 371 titles across 30 categories, from bestselling fiction to engineering textbooks, comics, manga and magazines.
+- 📖 **Read** 106 public-domain classics free in a comfortable, customisable online reader.
+- ✍️ **Publish** your own writing. Editors review each submission before it goes live in the Reader Zone.
+- 🎓 **Study** with textbooks organised by level (UG, PG, PhD) and exam (UPSC, JEE, NEET, CAT, SSC).
+
+It is built without frontend frameworks or a database server: plain HTML, CSS and JavaScript on the client,
+and Node.js with Express and Node's built-in SQLite on the server, so it is lightweight and easy to run anywhere.
+
+---
+
+## ✨ Features
+
+### 🛒 Bookstore
+| | |
+|---|---|
+| **Large catalog** | 371 titles in 30 categories: classics, fiction, mystery, sci-fi, fantasy, Indian and Hindi literature, self-help, business, biography, and more |
+| **Academic & exams hub** | Engineering (CS, Mechanical, Electrical, Electronics, Civil, Chemical), Medical, Science & Maths, Commerce & MBA, Humanities, PhD research methods, and competitive exam guides |
+| **Comics, manga & magazines** | Graphic novels, Indian comics, popular manga volumes, and news, business, science and exam-prep magazines |
+| **Smart browsing** | Live search suggestions, filters by type, academic level, genre, subject/branch, language, price and stock, plus sorting and pagination |
+| **Cart & checkout** | Guest cart that merges on login, free delivery over ₹499, coupon codes, Cash on Delivery / UPI / Card (payments simulated) |
+| **Orders** | Order history with a delivery tracker and self-service cancellation |
+| **Reviews & wishlist** | Star ratings and written reviews, wishlist, recently viewed books, share buttons |
+
+### 📖 Reader Zone
+- 106 public-domain classics (Pride and Prejudice, Sherlock Holmes, Frankenstein, Gitanjali and more), streamed from Project Gutenberg and cached on the server
+- Automatic chapter detection with a table of contents, page slider, keyboard navigation and swipe gestures on phones
+- **Day, sepia, dark and night** themes with adjustable font, text size, line spacing and page width
+- Bookmarks with notes, and reading progress synced to your account (or saved in the browser for guests)
+
+### ✍️ Write & Publish
+- Members write or paste their book, or upload a `.txt` file, with live word count, reading-time estimate, preview and an auto-saved draft
+- Admins review submissions in a dedicated queue: read the manuscript, then **approve and publish** or **send it back** with feedback
+- Published community books get their own page and a "From our community writers" shelf, free to read
+
+### 🛠️ Admin Panel
+- Dashboard with revenue, orders, customers, top sellers and low-stock alerts
+- Manage books (add, edit, delete), orders (status updates), customers (roles, sign-out) and contact messages
+- Book submission review queue and a **Security** tab with failed sign-ins, locked accounts and an audit log
+
+### 🎨 User Experience
+- Fully responsive layout with a bottom tab bar on phones
+- Dark mode that follows your system setting, accessible markup and keyboard shortcuts (press <kbd>/</kbd> to search)
+- Generated book covers with distinct styles for books, comics and magazines
+
+---
+
+## 🧰 Tech Stack
+
+| Layer | Technology |
+|---|---|
+| **Frontend** | HTML5, CSS3 (custom properties, grid, container queries), vanilla JavaScript single-page app with hash routing |
+| **Backend** | Node.js 22+, Express 4, REST API |
+| **Database** | SQLite via Node's built-in `node:sqlite` module (no separate database server) |
+| **Security** | scrypt password hashing, TOTP two-step verification (RFC 6238), QR codes with [`qrcode`](https://www.npmjs.com/package/qrcode) |
+| **Content** | Public-domain texts from [Project Gutenberg](https://www.gutenberg.org) |
+| **Hosting** | [Render](https://render.com) via an infrastructure-as-code blueprint (`render.yaml`) |
+
+### Architecture
+
+```mermaid
+flowchart LR
+    U[Browser<br/>HTML · CSS · JS SPA] -- HTTPS / JSON --> S[Express server<br/>Node.js]
+    S --> DB[(SQLite<br/>node:sqlite)]
+    S -- first open, then cached --> G[Project Gutenberg<br/>public-domain texts]
+    S --> F[Static frontend<br/>public/]
+```
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- [Node.js](https://nodejs.org) **22.13 or newer** (tested on Node 24)
+
+### Installation
 
 ```bash
+# 1. Clone the repository
+git clone https://github.com/digvijay165/Online-bookstore-and-reader-platform.git
+cd Online-bookstore-and-reader-platform
+
+# 2. Install dependencies
 npm install
+
+# 3. Create your private settings file and set an admin email and password
+cp .env.example .env
+
+# 4. Start the server
 npm start
 ```
 
-Then open http://127.0.0.1:3000. On Windows you can also double-click `start.bat`.
-Copy `.env.example` to `.env` first and set your admin email and password.
+Open **http://127.0.0.1:3000**. On Windows you can also double-click `start.bat`.
 
-## Deploy to Render
+On first start the database is created automatically, the catalog is loaded, and the admin account is created
+from your `.env` settings. Sign in and open **Admin Panel** from the menu.
 
-1. Click the **Deploy to Render** button above (or in Render choose **New → Blueprint** and pick this repository).
-2. Enter a strong `ADMIN_PASSWORD` when Render asks. It is stored by Render, never in the repository.
-3. Click **Apply**. After a few minutes the site is live at `https://online-bookstore-and-reader-platform.onrender.com`
-   (or a similar address Render shows you).
+### Configuration
 
-`render.yaml` uses Render's **free plan**: the site sleeps after 15 minutes without visitors (the first visit
-then takes about a minute) and the SQLite database is reset when the service restarts or redeploys. To keep users
-and orders permanently, upgrade to a paid instance, add a disk (for example mounted at `/var/data`), set the
-environment variable `DATA_DIR=/var/data`, and redeploy.
+All settings are environment variables (or lines in `.env`):
 
-## Admin login
+| Variable | Description | Default |
+|---|---|---|
+| `ADMIN_NAME` / `ADMIN_EMAIL` / `ADMIN_PASSWORD` | First admin account, created only if no admin exists | random password printed once if empty |
+| `PORT` / `HOST` | Address the server listens on | `3000` / `127.0.0.1` |
+| `HTTPS_ONLY` | `1` behind HTTPS: secure cookies and HSTS | off |
+| `TRUST_PROXY` | `1` behind a hosting proxy (Render, Nginx) for correct visitor IPs | off |
+| `DATA_DIR` | Folder for the database and cached texts (e.g. a persistent disk) | `./data` |
 
-The first admin account is created from the private `.env` file (`ADMIN_NAME`, `ADMIN_EMAIL`, `ADMIN_PASSWORD`;
-see `.env.example`) the first time the server starts with no admin. After that, change the password on the website in
-**My account → Security**. Keep `.env` secret: it is listed in `.gitignore`. If `ADMIN_PASSWORD` is empty, a random
-password is generated and printed once in the server console.
+Store settings such as coupons, shipping and security limits live in [`src/config.js`](src/config.js).
 
-Open **Admin Panel** from the menu after logging in. **Turn on two-step verification for every admin account.**
+### Coupon codes
 
-Set `HTTPS_ONLY=1` in `.env` when the site runs behind HTTPS so cookies are marked Secure and HSTS is sent.
+| Code | Offer |
+|---|---|
+| `WELCOME10` | 10% off orders over ₹299 (up to ₹200) |
+| `STUDENT15` | 15% off textbooks and exam books (up to ₹500) |
+| `READ50` | ₹50 off orders over ₹499 |
+| `FREESHIP` | Free delivery on any order |
 
-## Features
+---
 
-**Store**
-- 371 titles across 30 categories: classics and fiction, **engineering** (CS, mechanical, electrical, electronics, civil, chemical),
-  **medical**, science & maths, commerce & MBA, humanities, **PhD & research methods**, **competitive exams** (UPSC, JEE/NEET, CAT, SSC),
-  **comics & graphic novels**, **manga**, **magazines**, Hindi literature, religion and cooking
-- Filters by type (books / comics & manga / magazines), academic level (UG / PG / PhD / Competitive), genre, subject or branch,
-  language, price and availability, with search suggestions, sorting and pagination
-- Academic & Exams hub page with level and discipline shortcuts
-- Book pages with details, star ratings and reviews, related books, wishlist
-- Cart (works without an account and merges into your account when you log in), free delivery over ₹499
-- Checkout with delivery address and Cash on Delivery / UPI / Card (online payments are **simulated**)
-- Order history with a delivery tracker and cancellation (stock is returned on cancel)
-- Coupon codes at checkout (`WELCOME10`, `STUDENT15`, `READ50`, `FREESHIP`), defined in `src/config.js`
-- Dark mode, a bottom tab bar on phones, recently viewed books, share buttons, and the `/` key to jump to search
+## ☁️ Deployment
 
-**Write & Publish (community books)**
-- Any member can submit their own book: paste text or upload a `.txt` file, with live word count, preview and an auto-saved draft
-- Admins review submissions in **Admin Panel → Book submissions**: read the manuscript, then approve (optionally featuring it)
-  or send it back with a note; writers can edit and resubmit
-- Approved books get their own page and appear in the Reader Zone, free to read
+The project includes a [Render Blueprint](render.yaml) for one-click deployment.
 
-**Reader Zone**
-- 106 public-domain classics readable free in the browser (text fetched from Project Gutenberg on first open, then cached in `data/texts/`)
-- Pages, chapter list, page slider, keyboard arrows and swipe on phones
-- Day / sepia / dark / night themes, font, text size, line spacing and page width
-- Bookmarks with notes, reading progress saved to your account (or the browser when logged out)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/digvijay165/Online-bookstore-and-reader-platform)
 
-**Accounts & security**
-- Sign up / log in / log out, password strength meter, profile and saved address
-- **Security centre** (My account → Security): security checkup score, two-step verification with an authenticator app
-  (QR code setup, 8 one-time backup codes), change password, list of signed-in devices with remote sign-out,
-  recent sign-in activity, download your data, delete your account
-- Public **Security & privacy** page (`#/security`) explaining protections, safety tips and how to report a problem
-- Passwords hashed with salted scrypt; common and weak passwords rejected
-- Account locks for 15 minutes after 5 wrong passwords; per-IP limits on sign-in, sign-up and 2FA attempts; site-wide API rate limit
-- Sessions: random 256-bit tokens in HttpOnly SameSite cookies, 7-day lifetime, sign-out after 2 days idle,
-  all other devices signed out on password change
-- CSRF protection (custom header + Origin check), strict Content Security Policy, X-Frame-Options, Permissions-Policy,
-  COOP/CORP headers, `no-store` on API responses, parameterised SQL everywhere, output escaping in the UI
-- Admin **Security** tab: failed sign-ins, locked accounts (unlock), users without 2FA, and an **audit log** of admin actions
-- Help and security contact: digvijaysingh5360@gmail.com
+1. Click **Deploy to Render** and sign in.
+2. Enter a strong `ADMIN_PASSWORD` when asked. It is stored securely by Render, never in the repository.
+3. Click **Deploy Blueprint**. The site is live in a few minutes, and every push to `main` redeploys it automatically.
 
-**Admin panel**
-- Dashboard: revenue, orders, customers, top sellers, low stock
-- Add, edit and delete books; update order status; manage customer roles; read contact-form messages
+> [!TIP]
+> The free plan does not keep the SQLite database between restarts. For permanent data, switch to a paid instance,
+> attach a disk (for example at `/var/data`) and set `DATA_DIR=/var/data`.
 
-## Project structure
+---
+
+## 🔐 Security
+
+Security was designed in from the start:
+
+- **Passwords:** salted **scrypt** hashing; common, weak and email-based passwords are rejected
+- **Two-step verification:** authenticator-app codes (TOTP) with QR setup, replay protection and 8 single-use backup codes
+- **Brute-force protection:** accounts lock for 15 minutes after 5 wrong passwords, plus per-IP and site-wide rate limits
+- **Sessions:** random 256-bit tokens in `HttpOnly`, `SameSite`, `Secure` cookies with idle timeout, a device list and remote sign-out
+- **Web protections:** strict **Content Security Policy**, CSRF checks (custom header + Origin), clickjacking protection, `Permissions-Policy`, COOP/CORP, HSTS
+- **Data safety:** parameterised SQL everywhere, output escaping, request size limits, `no-store` on API responses
+- **Transparency:** users see their sign-in history; admins get an **audit log** of every admin action
+- **Privacy:** users can download all their data or permanently delete their account
+
+Found a vulnerability? Please email **digvijaysingh5360@gmail.com** rather than opening a public issue.
+
+---
+
+## 🔌 API Overview
+
+All endpoints are under `/api` and exchange JSON. State-changing requests require the `X-Requested-With: fetch` header.
+
+| Area | Endpoints |
+|---|---|
+| **Catalog** | `GET /books` (search, filters, sorting, pagination) · `GET /books/:id` · `GET /genres` · `GET /facets` · `GET /stats` |
+| **Auth** | `POST /auth/register` · `POST /auth/login` · `POST /auth/login/2fa` · `POST /auth/logout` · `GET /auth/me` |
+| **Security centre** | `GET /auth/security` · `DELETE /auth/sessions/:id` · `POST /auth/2fa/setup` · `POST /auth/2fa/enable` · `GET /auth/export` · `DELETE /auth/account` |
+| **Shopping** | `GET/POST/PUT/DELETE /cart` · `/wishlist` · `POST /coupons/apply` · `POST /orders` · `GET /orders` |
+| **Reader** | `GET /books/:id/text` · `GET/PUT /progress/:id` · `GET/POST/DELETE /bookmarks` |
+| **Publishing** | `POST /submissions` · `GET /submissions/mine` · `PUT /submissions/:id` |
+| **Admin** | `/admin/stats` · `/admin/books` · `/admin/orders` · `/admin/users` · `/admin/submissions` · `/admin/security` |
+
+---
+
+## 📁 Project Structure
 
 ```
-server.js            Express app: security headers, sessions, routes, static files
-.env                 Private settings: admin account, HTTPS flag (never commit or share)
-src/config.js        Port, security limits, shipping and coupon settings
-src/db.js            SQLite schema, migrations and first-run seeding
-src/security.js      Password hashing and policy, two-step codes (TOTP), auth middleware, validation helpers
-src/audit.js         Sign-in event log and admin audit log
-src/routes/          auth, books, shop (cart/wishlist/orders/coupons), reader, publish, admin APIs
-data/books.json      The book catalog used to seed the database
-data/bookstore.db    The database (created on first start; delete it to reset)
-public/              index.html, css/style.css, js/app.js (the frontend)
+Online-bookstore-and-reader-platform/
+├── server.js              # Express app: security headers, sessions, routing, static files
+├── render.yaml            # Render deployment blueprint
+├── .env.example           # Template for private settings (copy to .env)
+├── data/
+│   └── books.json         # Catalog used to seed the database
+├── src/
+│   ├── config.js          # Ports, security limits, shipping and coupons
+│   ├── db.js              # SQLite schema, migrations and seeding
+│   ├── security.js        # Password hashing and policy, TOTP, auth middleware, validation
+│   ├── audit.js           # Sign-in events and admin audit log
+│   └── routes/            # auth · books · shop · reader · publish · admin
+└── public/
+    ├── index.html         # Single-page app shell
+    ├── css/style.css      # Styles, dark mode and responsive layout
+    └── js/                # app.js (frontend app) · theme.js
 ```
 
-## Resetting
+---
 
-Stop the server and delete `data/bookstore.db*` to start again with a fresh catalog and no users or orders.
+## 🗺️ Roadmap
+
+- [ ] Real payment gateway integration (e.g. Razorpay)
+- [ ] Email notifications for orders and publishing decisions
+- [ ] Password reset by email
+- [ ] Cover image uploads for community books
+- [ ] PostgreSQL option for larger deployments
+
+---
+
+## 🙏 Acknowledgements
+
+- Free classics courtesy of [Project Gutenberg](https://www.gutenberg.org), the oldest digital library of public-domain books
+- Badges by [Shields.io](https://shields.io) · Fonts by [Google Fonts](https://fonts.google.com)
+
+---
+
+## 📬 Contact
+
+**Digvijay Singh**
+
+- GitHub: [@digvijay165](https://github.com/digvijay165)
+- Email: [digvijaysingh5360@gmail.com](mailto:digvijaysingh5360@gmail.com)
+- Live project: [online-bookstore-and-reader-platform.onrender.com](https://online-bookstore-and-reader-platform.onrender.com)
+
+<div align="center">
+
+⭐ **If you like this project, consider giving it a star!** ⭐
+
+</div>
