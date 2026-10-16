@@ -15,7 +15,11 @@ community publishing with editorial review, and account security features such a
 [![SQLite](https://img.shields.io/badge/SQLite-built--in-003B57?style=for-the-badge&logo=sqlite&logoColor=white)](https://nodejs.org/api/sqlite.html)
 [![JavaScript](https://img.shields.io/badge/JavaScript-Vanilla-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/docs/Web/JavaScript)
 
-[Features](#-features) · [Tech Stack](#-tech-stack) · [Getting Started](#-getting-started) · [Deployment](#-deployment) · [Security](#-security) · [API](#-api-overview) · [Contact](#-contact)
+[Screenshots](#-screenshots) · [Features](#-features) · [Tech Stack](#-tech-stack) · [Getting Started](#-getting-started) · [Deployment](#-deployment) · [Security](#-security) · [API](#-api-overview) · [Contact](#-contact)
+
+<br>
+
+<a href="https://online-bookstore-and-reader-platform.onrender.com"><img src="docs/screenshots/home.png" alt="Online Bookstore & Reader Platform home page" width="900"></a>
 
 </div>
 
@@ -36,6 +40,34 @@ community publishing with editorial review, and account security features such a
 
 It is built without frontend frameworks or a database server: plain HTML, CSS and JavaScript on the client,
 and Node.js with Express and Node's built-in SQLite on the server, so it is lightweight and easy to run anywhere.
+
+---
+
+## 📸 Screenshots
+
+<table>
+  <tr>
+    <td width="50%"><img src="docs/screenshots/shop.png" alt="Shop with filters"><p align="center"><b>Shop</b>: filters by type, level, genre and branch</p></td>
+    <td width="50%"><img src="docs/screenshots/book.png" alt="Book details page"><p align="center"><b>Book page</b>: details, reviews and free reading</p></td>
+  </tr>
+  <tr>
+    <td><img src="docs/screenshots/reader.png" alt="Reader Zone e-reader"><p align="center"><b>Reader Zone</b>: chapters, themes and bookmarks</p></td>
+    <td><img src="docs/screenshots/academic.png" alt="Academic and exams hub"><p align="center"><b>Academic &amp; Exams</b>: UG, PG, PhD and competitive exams</p></td>
+  </tr>
+  <tr>
+    <td><img src="docs/screenshots/comics.png" alt="Comics and manga"><p align="center"><b>Comics &amp; Manga</b>: graphic novels and manga</p></td>
+    <td><img src="docs/screenshots/publish.png" alt="Write and publish"><p align="center"><b>Write &amp; Publish</b>: community books with editor review</p></td>
+  </tr>
+  <tr>
+    <td><img src="docs/screenshots/security.png" alt="Security and privacy page"><p align="center"><b>Security &amp; Privacy</b>: how accounts are protected</p></td>
+    <td><img src="docs/screenshots/dark-mode.png" alt="Dark mode"><p align="center"><b>Dark mode</b>: follows your system theme</p></td>
+  </tr>
+</table>
+
+<p align="center">
+  <img src="docs/screenshots/mobile.png" alt="Mobile view" width="300"><br>
+  <b>Mobile</b>: responsive layout with a bottom tab bar
+</p>
 
 ---
 
