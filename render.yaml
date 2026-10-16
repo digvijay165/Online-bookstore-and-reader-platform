@@ -1,0 +1,27 @@
+# Render Blueprint: one-click deploy of Online Bookstore & Reader Platform.
+# Free plan: the site sleeps after 15 minutes without visitors, and the SQLite database is reset
+# whenever the service restarts or redeploys. Switch to a paid plan with a disk to keep data.
+services:
+  - type: web
+    name: online-bookstore-and-reader-platform
+    runtime: node
+    plan: free
+    buildCommand: npm ci --omit=dev
+    startCommand: npm start
+    healthCheckPath: /api/stats
+    envVars:
+      - key: NODE_VERSION
+        value: "24"
+      - key: HOST
+        value: 0.0.0.0
+      - key: TRUST_PROXY
+        value: "1"
+      - key: HTTPS_ONLY
+        value: "1"
+      - key: ADMIN_NAME
+        value: DIGVIJAY
+      - key: ADMIN_EMAIL
+        value: digvijaysingh5360@gmail.com
+      # Secret: Render asks for this when you create the service. It is never stored in the repository.
+      - key: ADMIN_PASSWORD
+        sync: false

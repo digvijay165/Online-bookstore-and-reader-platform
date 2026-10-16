@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Online Bookstore & Reader Zone</title>
+  <meta name="description" content="Buy books online and read 99+ classic books free in the Reader Zone.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%231f3a5f'/><path d='M8 9h7a3 3 0 0 1 3 3v12a2 2 0 0 0-2-2H8zM24 9h-4a3 3 0 0 0-2 1v14a2 2 0 0 1 2-2h4z' fill='%23f4b942'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/theme.js"></script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>Free delivery on orders above &#8377;499 &middot; 99+ classics free to read online</span>
+      <span class="topbar-links"><a href="#/about">About</a><a href="#/contact">Help &amp; Contact</a></span>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" width="22" height="22"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <a href="#/" class="brand" aria-label="Online Bookstore and Reader Zone home">
+        <span class="brand-mark">
+          <svg viewBox="0 0 32 32" width="36" height="36"><rect width="32" height="32" rx="8" fill="var(--primary)"/><path d="M8 9h7a3 3 0 0 1 3 3v12a2 2 0 0 0-2-2H8zM24 9h-4a3 3 0 0 0-2 1v14a2 2 0 0 1 2-2h4z" fill="var(--accent)"/></svg>
+        </span>
+        <span class="brand-text"><strong>Online Bookstore</strong><small>&amp; Reader Zone</small></span>
+      </a>
+
+      <form class="header-search" id="headerSearch" role="search">
+        <input type="search" name="q" placeholder="Search by title, author or genre..." aria-label="Search books" autocomplete="off">
+        <button type="submit" aria-label="Search">
+          <svg viewBox="0 0 24 24" width="20" height="20"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="m20 20-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <div class="search-suggest" id="searchSuggest" hidden></div>
+      </form>
+
+      <div class="header-actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Switch to dark mode" title="Dark / light mode">
+          <svg class="i-moon" viewBox="0 0 24 24" width="21" height="21"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          <svg class="i-sun" viewBox="0 0 24 24" width="21" height="21"><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <a href="#/wishlist" class="icon-btn" aria-label="Wishlist" title="Wishlist">
+          <svg viewBox="0 0 24 24" width="22" height="22"><path d="M12 20s-7-4.4-9.2-9A5 5 0 0 1 12 6a5 5 0 0 1 9.2 5C19 15.6 12 20 12 20z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          <span class="count-badge" id="wishCount" hidden>0</span>
+        </a>
+        <a href="#/cart" class="icon-btn" aria-label="Cart" title="Cart">
+          <svg viewBox="0 0 24 24" width="22" height="22"><path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.5L21 8H6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="20" r="1.4" fill="currentColor"/><circle cx="17" cy="20" r="1.4" fill="currentColor"/></svg>
+          <span class="count-badge" id="cartCount" hidden>0</span>
+        </a>
+        <div id="userArea" class="user-area"></div>
+      </div>
+    </div>
+
+    <nav class="main-nav" id="mainNav" aria-label="Main">
+      <div class="container nav-inner">
+        <a href="#/" data-nav="/">Home</a>
+        <a href="#/shop" data-nav="/shop">Shop All Books</a>
+        <a href="#/reader" data-nav="/reader" class="nav-reader">Reader Zone <span class="pill">FREE</span></a>
+        <a href="#/academic" data-nav="/academic">Academic &amp; Exams</a>
+        <a href="#/publish" data-nav="/publish">&#x270D;&#xFE0F; Write &amp; Publish</a>
+        <a href="#/shop?genre=Engineering">Engineering</a>
+        <a href="#/shop?format=comic">Comics &amp; Manga</a>
+        <a href="#/shop?format=magazine">Magazines</a>
+        <a href="#/shop?sort=popular" data-nav="/shop?sort=popular">Bestsellers</a>
+        <a href="#/shop?genre=Indian%20Literature">Indian Literature</a>
+        <a href="#/shop?genre=Hindi%20Literature">Hindi</a>
+        <a href="#/orders" data-nav="/orders">My Orders</a>
+        <a href="#/admin" data-nav="/admin" id="adminLink" hidden>Admin Panel</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <div id="app" aria-live="polite"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <div class="brand brand-footer">
+          <span class="brand-mark"><svg viewBox="0 0 32 32" width="36" height="36"><rect width="32" height="32" rx="8" fill="#ffffff22"/><path d="M8 9h7a3 3 0 0 1 3 3v12a2 2 0 0 0-2-2H8zM24 9h-4a3 3 0 0 0-2 1v14a2 2 0 0 1 2-2h4z" fill="var(--accent)"/></svg></span>
+          <span class="brand-text"><strong>Online Bookstore</strong><small>&amp; Reader Zone</small></span>
+        </div>
+        <p>Your neighbourhood bookshop, online. Buy the latest bestsellers or read timeless classics free, right in your browser.</p>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <a href="#/shop">All books</a>
+        <a href="#/shop?sort=popular">Bestsellers</a>
+        <a href="#/shop?sort=newest">New &amp; recent</a>
+        <a href="#/academic">Textbooks &amp; exams</a>
+        <a href="#/shop?format=comic">Comics &amp; manga</a>
+        <a href="#/shop?format=magazine">Magazines</a>
+      </div>
+      <div>
+        <h4>Reader Zone</h4>
+        <a href="#/reader">Free library</a>
+        <a href="#/account?tab=library">Continue reading</a>
+        <a href="#/account?tab=bookmarks">My bookmarks</a>
+        <a href="#/publish">Publish your book</a>
+      </div>
+      <div>
+        <h4>Help</h4>
+        <a href="#/orders">Track orders</a>
+        <a href="#/contact">Contact us</a>
+        <a href="mailto:digvijaysingh5360@gmail.com">digvijaysingh5360@gmail.com</a>
+        <a href="#/about">About us</a>
+        <a href="#/security">Security &amp; privacy</a>
+      </div>
+      <div class="footer-newsletter">
+        <h4>Get book recommendations</h4>
+        <p>One email a month. No spam.</p>
+        <form id="newsletterForm" class="newsletter-form">
+          <input type="email" name="email" placeholder="you@example.com" required aria-label="Email address">
+          <button class="btn btn-accent" type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>&copy; <span id="year"></span> Online Bookstore &amp; Reader Zone. All rights reserved.</span>
+      <span>Free classics are public-domain texts from Project Gutenberg.</span>
+    </div>
+  </footer>
+
+  <button class="to-top" id="toTop" aria-label="Back to top" hidden>&uarr;</button>
+
+  <nav class="tabbar" aria-label="Quick navigation">
+    <a href="#/" data-tab="/"><span>&#x1F3E0;</span>Home</a>
+    <a href="#/shop" data-tab="/shop"><span>&#x1F50D;</span>Shop</a>
+    <a href="#/reader" data-tab="/reader"><span>&#x1F4D6;</span>Read</a>
+    <a href="#/cart" data-tab="/cart"><span>&#x1F6D2;<b class="tab-badge" id="tabCartCount" hidden>0</b></span>Cart</a>
+    <a href="#/account" data-tab="/account"><span>&#x1F464;</span>Account</a>
+  </nav>
+
+  <div class="toast-stack" id="toasts" aria-live="assertive"></div>
+  <script src="/js/app.js"></script>
+</body>
+</html>
