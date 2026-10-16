@@ -3,7 +3,7 @@
 A full-stack online bookstore with a free online reader for public-domain classics, community publishing,
 textbooks from UG to PhD, comics, manga and magazines.
 
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/digvijay165/online-bookstore-and-reader-platform)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/digvijay165/Online-bookstore-and-reader-platform)
 
 - **Frontend:** HTML5, CSS3, vanilla JavaScript (single-page app, no build step)
 - **Backend:** Node.js + Express
